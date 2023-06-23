@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine JS</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    body {
+        background-color: #06484d;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+
+    .list-none {
+        list-style: none;
+        padding-left: 0;
+    }
+</style>
+
+<div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese'] }"></div>
+
+<body>
+    <h2>Alpinejs Counter Widget</h2>
+    <div x-data="{ title: 'Hello, Nkosingiphile' }">
+        <style class="right"></style>
+        <p x-text="title"></p>
+        <button x-on:click="title='You are in! keep exploring AlpineJS'">click in</button>
+        <button x-on:click="title='Yeahh! it is the end of the road thank you.'">click out</button>
+
+        <div x-data="{ title: 'AlpineJS is Awesome' }">
+            <p x-text="title"></p>
+            <input type="text" x-model="title">
+        </div>
+        <br>
+        <div x-data="{ code: '<p>Dynamic Paragraph </p>' }">
+            <div x-html="code"></div>
+        </div>
+        <div x-data="{ code: '<p>Dynamic Paragraph</p>' }">
+            <div x-ref="sentence">I am a sentence</div>
+            <button @click="$refs.sentence.innerText = 'I just changed'">Change Sentence</button>
+        </div>
+        <br>
+    </div>
+    <div x-data="{counter:0}">
+        <div x-text="counter"> </div>
+        <br>
+        <div>
+            <button class="increment" @click="counter++">Increment</button>
+            <button class="decr
+              ement" @click="counter>0 ?counter-- :0">Decrement</button>
+        </div>
+    </div>
+    <div x-data="{ count:0 }">
+        <p x-text="count"></p>
+        <button @click="count++">Count Up</button>
+        <button @click="count>0 ? count--:0">Count Down</button>
+    </div>
+    <br>
+    <div x-data="{ count:0}">
+        <button @click="count++">+</button><span x-text="count"></span><button @click="count>0 ?count--:0">-</button>
+    </div>
+    <div x-data="{ title: 'Groceries below' }">
+        <p x-text="Groceries"></p>
+        <input type="text" x-model="title">
+    </div>
+    <div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese'] }">
+        <p><strong>Groceries:</strong></p>
+        <ul class="list-none">
+            <template x-for="item in groceries">
+                <li x-text="item"></li>
+            </template>
+        </ul>
+    </div>
+    </div>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+</body>
+
+</html>
